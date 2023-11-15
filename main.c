@@ -5,6 +5,8 @@
 
 /**
  * main - The main function.
+ * @argv: A 2D array of arguments passed to the program.
+ * @argc: The number of arguments passed.
  * Return: An int.
  */
 
@@ -13,7 +15,7 @@ int main(int argc, char **argv)
 	FILE *fd = NULL;
 	char *extension;
 	int exit_code = EXIT_SUCCESS;
-	
+
 	if (argc != 2)
 		return (usage_error());
 
