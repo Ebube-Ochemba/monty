@@ -1,7 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-
 #define _GNU_SOURCE /* getline */
 
 #include <stdio.h>
@@ -45,7 +44,7 @@ extern int value; /* value passed to opcode */
 
 /*** main function ***/
 int run_monty(FILE *fd);
-int get_opc(stack_t **stack, char *arg, char *item, int count);
+int get_opc(stack_t **stack, char *opc, char *arg, int line_number);
 
 /*** errors messages ***/
 int usage_error(void);
