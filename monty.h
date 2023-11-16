@@ -1,15 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-/* close, access */
-#include <unistd.h>
 
-/* fprintf */
+#define _GNU_SOURCE /* getline */
+
 #include <stdio.h>
-#include <string.h>
-
-/* malloc, free */
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -41,12 +39,28 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/********** FUNCTION DECLARATIONS **********/
+/********** DECLARATIONS **********/
+
+extern int value; /* value passed to opcode */
+
+/*** main function ***/
+int run_monty(FILE *fd);
+int get_opc(stack_t **stack, char *arg, char *item, int count);
 
 /*** errors messages ***/
 int usage_error(void);
 int access_error(char *file);
 int f_open_error(char *file);
 int not_monty_file(char *file);
+int malloc_error(void);
+int push_error(int line_number);
+int ins_error(char *opc, int line_number);
+
+/*** utilities ***/
+int _isdigit(char *c);
+
+/*** opcodes ***/
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
 
 #endif

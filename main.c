@@ -31,8 +31,97 @@ int main(int argc, char **argv)
 		return (f_open_error(argv[1]));
 
 	/* call interpeter and return int to update exit_code */
-	/* exit_code = "pass fd to function" */
+	exit_code = run_monty(fd);
 
 	fclose(fd);
 	return (exit_code);
+}
+
+/**
+ * run_monty - Executes a Monty bytecode script.
+ * @fd: File descriptor for an open Monty script.
+ * Return: EXIT_SUCCESS on success or appropriate error code.
+ */
+int run_monty(FILE *fd)
+{
+	char *line = NULL, *opc = NULL, *arg = NULL;
+	size_t len = 0;
+	ssize_t read;
+	int line_number = 0, result = 0, exit_code = EXIT_SUCCESS;
+	stack_t *stack = NULL, *temp;
+
+	while ((read = getline(&line, &len, fd)) != -1)
+	{
+		line_number++;
+
+		opc = strtok(line, " \t\r\n");
+
+		if (opc == NULL || *opc == '#')
+		{
+			continue;
+		}
+
+		arg = strtok(NULL, " \t\r\n");
+		result = get_opc(&stack, opc, arg, line_number);
+		if (result == 1)
+		{
+			exit_code = push_error(line_number);
+			break;
+		}
+		else if (result == 2)
+		{
+			exit_code = ins_error(opc, line_number);
+			break;
+		}
+	}
+
+	while (stack != NULL)
+	{
+		temp = stack;
+		stack = stack->next;
+		free(temp);
+	}
+
+	free(line);
+	return (exit_code);
+}
+
+/**
+ * get_opc - Handles opcode selection.
+ * @stack: A stack or queue.
+ * @opc: The opcode to select.
+ * @arg: The parameter passed to the opcode.
+ * @line_number: The current line in file.
+ * Return: 0 on success, else 1 0r 2 for error.
+ */
+int get_opc(stack_t **stack, char *opc, char *arg, int line_number)
+{
+	int i = 0, value = 0;
+
+	instruction_t op[] = {
+		{"push", _push},
+		{"push", _pall},
+		{NULL, NULL}
+	};
+
+	while (op[i].opcode)
+	{
+		if (!strcmp(opc, op[i].opcode))
+		{
+			if (!strcmp(opc, "push"))
+			{
+				if (_isdigit(arg) == 1)
+					value = atoi(arg);
+				else
+					return (1);
+			}
+			op[i].f(stack, (unsigned int)line_number);
+			break;
+		}
+		i++;
+	}
+	if (!op[i].opcode)
+		return (2);
+
+	return (0);
 }

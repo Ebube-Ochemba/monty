@@ -45,7 +45,11 @@ int not_monty_file(char *file)
 }
 
 /**
- * a
- * R
+ * malloc_error - Prints error messasge for malloc failure.
+ * Return: EXIT_FAILURE.
  */
-
+int malloc_error(void)
+{
+	fprintf(stderr, "Error: malloc failed\n");
+	exit(EXIT_FAILURE);
+}
