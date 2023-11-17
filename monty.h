@@ -51,12 +51,13 @@ int usage_error(void);
 int access_error(char *file);
 int f_open_error(char *file);
 int not_monty_file(char *file);
-int malloc_error(void);
+void malloc_error(void);
 int push_error(int line_number);
 int ins_error(char *opc, int line_number);
 
 /*** utilities ***/
 int _isdigit(char *c);
+stack_t *create_node(int n);
 
 /*** opcodes ***/
 void _push(stack_t **stack, unsigned int line_number);

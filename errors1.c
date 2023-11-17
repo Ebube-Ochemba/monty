@@ -41,14 +41,14 @@ int f_open_error(char *file)
 int not_monty_file(char *file)
 {
 	fprintf(stderr, "Error: Not a Monty bytecode file %s\n", file);
-	exit(EXIT_FAILURE);
+	return (EXIT_FAILURE);
 }
 
 /**
  * malloc_error - Prints error messasge for malloc failure.
  * Return: EXIT_FAILURE.
  */
-int malloc_error(void)
+void malloc_error(void)
 {
 	fprintf(stderr, "Error: malloc failed\n");
 	exit(EXIT_FAILURE);

@@ -96,7 +96,7 @@ int run_monty(FILE *fd)
  */
 int get_opc(stack_t **stack, char *opc, char *arg, int line_number)
 {
-	int i = 0, value = 0;
+	int i = 0;
 
 	instruction_t op[] = {
 		{"push", _push},
