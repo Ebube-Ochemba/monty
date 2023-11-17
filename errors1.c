@@ -21,7 +21,6 @@ int access_error(char *file)
 	return (EXIT_FAILURE);
 }
 
-
 /**
  * f_open_error - Prints f_open_error message.
  * @file: The name of the file passed to the program.
@@ -30,17 +29,6 @@ int access_error(char *file)
 int f_open_error(char *file)
 {
 	fprintf(stderr, "Error: Can't open file %s\n", file);
-	return (EXIT_FAILURE);
-}
-
-/**
- * not_monty_file - Prints error message in case of wrong bytecode.
- * @file: The name of the file passed to the program.
- * Return: EXIT_FAILURE.
- */
-int not_monty_file(char *file)
-{
-	fprintf(stderr, "Error: Not a Monty bytecode file %s\n", file);
 	return (EXIT_FAILURE);
 }
 

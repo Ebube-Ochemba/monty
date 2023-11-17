@@ -50,7 +50,6 @@ int get_opc(stack_t **stack, char *opc, char *arg, int line_number);
 int usage_error(void);
 int access_error(char *file);
 int f_open_error(char *file);
-int not_monty_file(char *file);
 void malloc_error(void);
 int push_error(int line_number);
 int ins_error(char *opc, int line_number);
