@@ -3,6 +3,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+int value = 0;
+
 /**
  * main - The main function.
  * @argv: A 2D array of arguments passed to the program.
@@ -100,7 +102,7 @@ int get_opc(stack_t **stack, char *opc, char *arg, int line_number)
 
 	instruction_t op[] = {
 		{"push", _push},
-		{"push", _pall},
+		{"pall", _pall},
 		{NULL, NULL}
 	};
 
