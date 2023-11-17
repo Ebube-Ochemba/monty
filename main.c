@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 
 	extension = strrchr(argv[1], '.');
 	if (extension == NULL || strcmp(extension, ".m") != 0)
-		return (not_monty_file(argv[1]));
+		return (access_error(argv[1]));
 
 	if (access(argv[1], F_OK) == -1)
 		return (access_error(argv[1]));
