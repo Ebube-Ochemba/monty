@@ -17,7 +17,7 @@ int usage_error(void)
  */
 int access_error(char *file)
 {
-	fprintf(stderr, "Error: Can't access file %s\n", file);
+	fprintf(stderr, "Error: Can't open file %s\n", file);
 	return (EXIT_FAILURE);
 }
 
