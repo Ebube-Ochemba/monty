@@ -7,7 +7,7 @@
  */
 int push_error(int line_number)
 {
-	fprintf(stderr, "L%u: usage: push integer\n", line_number);
+	fprintf(stderr, "L%d: usage: push integer\n", line_number);
 	return (EXIT_FAILURE);
 }
 
@@ -19,6 +19,6 @@ int push_error(int line_number)
  */
 int ins_error(char *opc, int line_number)
 {
-	fprintf(stderr, "L%u unknown instruction %s\n", line_number, opc);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opc);
 	return (EXIT_FAILURE);
 }
