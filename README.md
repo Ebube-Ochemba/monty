@@ -26,8 +26,8 @@ update...
 ```sh
 $ git clone https://github.com/Ebube-Ochemba/monty
 $ cd monty
-$ gcc -Wall -Werror -Wextra -pedantic \*.c \*.h -o monty
-$ ./monty <./path/to/test_file>
+$ gcc -Wall -Werror -Wextra -pedantic *.c *.h -o monty
+$ ./monty <./path/to/bytecode>
 ```
 
 ## Credits
