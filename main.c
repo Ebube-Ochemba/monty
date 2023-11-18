@@ -112,6 +112,8 @@ int get_opc(stack_t **stack, char *opc, char *arg, int line_number)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"pchar", _pchar},
+		{"pstr", _pstr},
 		{NULL, NULL}
 	};
 
