@@ -82,7 +82,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _swap - Removes the top element of the stack.
+ * _swap - Swaps the top two elements of the stack.
  * @stack: A pointer to the node at the top of the stack.
  * @line_number: The line number in the monty file.
  * Return: void
