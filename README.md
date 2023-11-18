@@ -23,14 +23,16 @@ update...
 
 ## How to use
 
-> $ git clone https://github.com/Ebube-Ochemba/monty
-> $ cd monty
-> $ gcc -Wall -Werror -Wextra -pedantic \*.c \*.h -o monty
-> $ ./monty <./path/to/test_file>
+```sh
+$ git clone https://github.com/Ebube-Ochemba/monty
+$ cd monty
+$ gcc -Wall -Werror -Wextra -pedantic \*.c \*.h -o monty
+$ ./monty <./path/to/test_file>
+```
 
 ## Credits
 
-Work is owned and maintained by [Ebube Ochemba](https://github.com/Ebube-Ochemba) & [Nouran Mohamed](Nouran Mohamed).
+Work is owned and maintained by [Ebube Ochemba](https://github.com/Ebube-Ochemba) & [Nouran Mohamed](https://github.com/nour-rayann).
 
 ## Acknowledgement
 
