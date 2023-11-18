@@ -16,9 +16,10 @@ void _add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	(*stack)->n = (*stack)->n + (*stack)->next->n;
-	temp = *stack;
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
+	temp = (*stack)->next;
+	(*stack)->n += temp->n;
 	free(temp);
+	(*stack)->next = temp->next;
+	if ((*stack)->next != NULL)
+		(*stack)->next->prev = *stack;
 }
