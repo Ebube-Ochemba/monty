@@ -1,6 +1,6 @@
 # The monty program
 
-> This project was developed by [Nouran Mohamed](https://github.com/nour-rayann) and [Ebube Ochemba](https://github.com/Ebube-Ochemba).
+> update...
 
 ## About
 
@@ -31,7 +31,7 @@ $ ./monty <./path/to/bytecode>
 
 ## Credits
 
-Work is owned and maintained by [Ebube Ochemba](https://github.com/Ebube-Ochemba) & [Nouran Mohamed](https://github.com/nour-rayann).
+Work is owned and maintained by [Ebube Ochemba](https://github.com/Ebube-Ochemba) and [Nouran Mohamed](https://github.com/nour-rayann).
 
 ## Acknowledgement
 
