@@ -104,6 +104,7 @@ int get_opc(stack_t **stack, char *opc, char *arg, int line_number)
 		{"push", _push},
 		{"pall", _pall},
 		{"pint", _pint},
+		{"pop", _pop},
 		{NULL, NULL}
 	};
 
