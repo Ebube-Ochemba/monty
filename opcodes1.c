@@ -51,7 +51,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	fprintf(stdout, "%d\n", (*stack)->n);
@@ -69,7 +69,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -79,4 +79,31 @@ void _pop(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = NULL;
 
 	free(temp);
+}
+
+/**
+ * _swap - Removes the top element of the stack.
+ * @stack: A pointer to the node at the top of the stack.
+ * @line_number: The line number in the monty file.
+ * Return: void
+ */
+void _swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = (*stack)->next;
+	(*stack)->next = (*stack)->next->next;
+	if ((*stack)->next != NULL)
+		(*stack)->next->prev = *stack;
+
+	temp->next = *stack;
+	temp->prev = NULL;
+	(*stack)->prev = temp;
+	*stack = temp;
 }
