@@ -8,8 +8,7 @@
  */
 void _add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp = NULL;
-	int sum = 0;
+	stack_t *temp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -17,8 +16,9 @@ void _add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
+	(*stack)->n = (*stack)->n + (*stack)->next->n;
 	temp = *stack;
-	sum = temp->n + temp->next->n;
-	temp->next->n = sum;
-	_pop(stack, line_number);
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	free(temp);
 }
