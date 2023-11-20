@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
-		return (f_open_error(argv[1]));
+		return (access_error(argv[1]));
 
 	/* call interpeter and return int to update exit_code */
 	exit_code = run_monty(fd);
