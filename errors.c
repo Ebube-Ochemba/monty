@@ -7,7 +7,7 @@
 int usage_error(void)
 {
 	fprintf(stderr, "USAGE: monty file\n");
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -18,7 +18,7 @@ int usage_error(void)
 int access_error(char *file)
 {
 	fprintf(stderr, "Error: Can't open file %s\n", file);
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -39,7 +39,7 @@ void malloc_error(void)
 int push_error(int line_number)
 {
 	fprintf(stderr, "L%d: usage: push integer\n", line_number);
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }
 
 /**
@@ -51,5 +51,5 @@ int push_error(int line_number)
 int ins_error(char *opc, int line_number)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opc);
-	return (EXIT_FAILURE);
+	exit(EXIT_FAILURE);
 }

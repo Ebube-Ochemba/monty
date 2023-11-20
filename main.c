@@ -66,15 +66,9 @@ int run_monty(FILE *fd)
 		arg = strtok(NULL, " \t\r\n");
 		result = get_opc(&stack, opc, arg, line_number);
 		if (result == 1)
-		{
-			exit_code = push_error(line_number);
-			break;
-		}
+			push_error(line_number);
 		else if (result == 2)
-		{
-			exit_code = ins_error(opc, line_number);
-			break;
-		}
+			ins_error(opc, line_number);
 	}
 
 	while (stack != NULL)
