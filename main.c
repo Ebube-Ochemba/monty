@@ -117,10 +117,9 @@ int get_opc(stack_t **stack, char *opc, char *arg, int line_number)
 		{
 			if (!strcmp(opc, "push"))
 			{
-				if (_isdigit(arg) == 1)
-					value = atoi(arg);
-				else
+				if (_isdigit(arg) == 0)
 					return (1);
+				value = atoi(arg);
 			}
 			op[i].f(stack, (unsigned int)line_number);
 			break;
